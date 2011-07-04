@@ -5,9 +5,6 @@
 		var doc = app.activeDocument,
 			spreads = doc.spreads,
 			snippet_regex = /^.*\.idms/,
-			toArray = function ( Array_like_object ) {
-				return Array.prototype.slice.call( Array_like_object );
-			},
 			exclude_filename_frame = function ( item, array ) {
 				for ( var i = 0, max = array.length; i < max; i++ ) {
 					if ( array[ i ] === item ) {
@@ -82,6 +79,9 @@
 				};
 				return Factory;
 			} )(),
+			toArray = function ( Array_like_object ) {
+				return Array.prototype.slice.call( Array_like_object );
+			},
 			sprintf = function ( text ){ // resource: https://gist.github.com/1013686
 				var i = 1, args = arguments;
 				return text.replace( /%s/g, function ( pattern ) {
